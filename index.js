@@ -4,20 +4,8 @@
 
 const fs = require('fs');
 const { argv } = require('process');
-// path = "C:\\Users\\Samuel\\Documents\\Laboratoria\\SAP004-md-links"
-// fs.readdir(path, 'utf8', (err, data) => {               /*lendo o arquivo md*/
-//   if(err){
-//     console.log (err)
-//   } else { //array  de obj
-//     data.forEach(file => {
-//       console.log(file)
-//       console.log(data)
-//     //const oi = data.match(/http[s]?:/)
-//     //console.log (oi)
-//   })
-// }});
 
-function cheking(path) {
+function checkIn(path) {
 
   fs.stat(path, (err, stats) => {
     if (stats.isFile()) {
@@ -46,5 +34,7 @@ function cheking(path) {
     }
   });
 }
-cheking(process.argv[2])
+checkIn(process.argv[2]);
+
+module.exports = mdLinks;
 
