@@ -123,10 +123,6 @@ A seguir você pode conferir os objetivos de aprendizagem deste projeto:
   módulo deve incluir um _executável_ que pode ser chamado tanto por linha de
   comando quanto importado com `require` para ser usado em seu código.
 
-* Os testes unitários devem cobrir no mínimo 70% dos _statements_, _functions_,
-  _lines_ e _branches_. Recomendamos que explore o [Jest](https://jestjs.io/)
-  para as suas provas unitárias.
-
 * Neste projeto não é permitido utilizar `async/await`.
 
 * Para este projeto é opcional o uso de ES modules `(import/export)`. Caso
@@ -154,22 +150,6 @@ repositório.
   ser incluídas no controle de versão (`git`).
 * `test/md-links.spec.js` deve conter os testes unitários para a função
   `mdLinks()`. A sua implementação deve rodar estes testes.
-
-### JavaScript API
-
-O módulo deve poder ser importado em outros scripts Node.js e deve oferecer a
-seguinte interface:
-
-#### `mdLinks(path, options)`
-
-##### Argumentos
-
-* `path`: Rota absoluta ou relativa ao arquivo ou diretório. Se a rota passada é
-  relativa, deve resolver como sendo relativa ao diretório onde foi chamada -
-  _current working directory_
-* `options`: Um objeto com a seguinte propriedade:
-  - `validate`: Um booleano que determina se deseja validar os links
-    encontrados.
 
 ##### Valor de retorno
 
