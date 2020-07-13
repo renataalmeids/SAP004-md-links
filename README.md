@@ -8,9 +8,8 @@
 * [4. Considerações gerais](#4-considerações-gerais)
 * [5. Critérios de aceitação mínimos do projeto](#5-criterios-de-aceitação-mínimos-do-projeto)
 * [6. Entregáveis](#6-entregáveis)
-* [7. Hacker edition](#7-hacker-edition)
-* [8. Guias, dicas e leituras complementares](#8-guias-dicas-e-leituras-complementares)
-* [9. Checklist](#9-checklist)
+* [7. Guias, dicas e leituras complementares](#8-guias-dicas-e-leituras-complementares)
+* [8. Checklist](#9-checklist)
 
 ***
 
@@ -208,66 +207,19 @@ mdLinks("./some/dir")
 
 ### CLI (Command Line Interface - Interface de Linha de Comando)
 
-O executável da nossa aplicação deve poder ser executado da seguinte maneira,
-através do terminal:
+### Como instalar:
 
-`md-links <path-to-file> [options]`
+Para instalar execute no NodeJS o seguinte o comando:
+$ npm install -g renataalmeids/sap004-md-links
 
-Por exemplo:
+Caso apresente erro tente o comando:
+$ sudo npm install -g renataalmeids/sap004-md-links
 
-```sh
+
+### Como utilizar:
+
+Você deverá indicar o camno do seu arquivo
 $ md-links ./some/example.md
-./some/example.md http://algo.com/2/3/ Link de algo
-./some/example.md https://outra-coisa-.net/algum-doc.html algum doc
-./some/example.md http://google.com/ Google
-```
-
-O comportamento padrão não deve validar se as URLs respondem ok ou não, somente
-deve identificar o arquivo Markdown (a partir da rota que recebeu como
-argumento), analisar o arquivo Markdown e imprimir os links que vão sendo
-encontrados, junto com a rota do arquivo onde aparece e o texto encontrado
-dentro do link (truncado 50 caracteres).
-
-#### Options
-
-##### `--validate`
-
-Se passamos a opção `--validate`, o módulo deve fazer uma requisição HTTP para
-verificar se o link funciona ou não. Se o link resultar em um redirecionamento a
-uma URL que responde ok, então consideraremos o link como ok.
-
-Por exemplo:
-
-```sh
-$ md-links ./some/example.md --validate
-./some/example.md http://algo.com/2/3/ ok 200 Link de algo
-./some/example.md https://outra-coisa-.net/algum-doc.html fail 404 algum doc
-./some/example.md http://google.com/ ok 301 Google
-```
-
-Vemos que o _output_ neste caso inclui a palavra `ok` e `fail` depois da URL,
-assim como o status da resposta recebida à requisição HTTP feita pela URL.
-
-##### `--stats`
-
-Se passamos a opção `--stats` o output (saída) será um texto com estatísticas
-básicas sobre os links.
-
-```sh
-$ md-links ./some/example.md --stats
-Total: 3
-Unique: 3
-```
-
-Também podemos combinar `--stats` e `--validate` para obter estatísticas que
-necessitem dos resultados da validação.
-
-```sh
-$ md-links ./some/example.md --stats --validate
-Total: 3
-Unique: 3
-Broken: 1
-```
 
 ## 6. Entregáveis
 
@@ -275,20 +227,9 @@ O módulo deve ser instalável via `npm install <github-user>/md-links`. Este
 módulo deve incluir um executável que pode ser chamado tanto por linha de
 comando quanto importado com `require` para usá-lo no seu código.
 
-## 7. Hacker edition
-
-As seções chamadas _Hacker Edition_ são **opcionais**. É para caso você tenha
-**terminado** todos os requisitos anteriores e ainda tenha tempo disponível,
-e pode assim aprofundar e/ou exercitar mais sobre os objetivos de
-aprendizagem deste projeto.
-
-* Poder adicionar uma propriedade `line` a cada objeto `link` indicando em que
-  linha do arquivo está o link.
-* Poder agregar mais estatísticas.
-
 ***
 
-## 8. Guias, dicas e leituras complementares
+## 7. Guias, dicas e leituras complementares
 
 ### FAQs
 
@@ -375,7 +316,7 @@ destas decisões. Não existe uma única maneira certa :wink:
 * [Online Regex Tester](https://regex101.com/)
 * [Regexr](https://regexr.com/)
 
-## 9. Checklist
+## 8. Checklist
 
 ### General
 
