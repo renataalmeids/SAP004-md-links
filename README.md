@@ -161,30 +161,6 @@ propriedades:
 * `text`: Texto que irá aparecer dentro de um link (`<a>`).
 * `file`: Rota do arquivo onde foi encontrado o link.
 
-#### Exemplo
-
-```js
-const mdLinks = require("md-links");
-
-mdLinks("./some/example.md")
-  .then(links => {
-    // => [{ href, text, file }]
-  })
-  .catch(console.error);
-
-mdLinks("./some/example.md", { validate: true })
-  .then(links => {
-    // => [{ href, text, file, status, ok }]
-  })
-  .catch(console.error);
-
-mdLinks("./some/dir")
-  .then(links => {
-    // => [{ href, text, file }]
-  })
-  .catch(console.error);
-```
-
 ### CLI (Command Line Interface - Interface de Linha de Comando)
 
 ### Como instalar:
@@ -228,29 +204,6 @@ Por exemplo, o
 [`course-parser`](https://github.com/Laboratoria/course-parser) que é
 usado para o currículo não está publicado nos registros públicos do NPM, com
 isso temos que instalar diretamente pelo GitHub com o commando `npm install Laboratoria/course-parser`.
-
-### Sugestões de implementação
-
-A implementação deste projeto tem várias partes: ler do sistema de arquivos,
-receber argumentos através da linha de comando, analisar um teste, fazer
-consultas HTTP, etc. Tudo isso pode ser feito de muitas formas, tanto com
-bibliotecas quanto com JS puro.
-
-Por exemplo, o _parse_ (análise) do Markdown para extrair os links poderia ser
-criado das seguintes maneiras (todas são válidas):
-
-* Usando um _módulo_ como
-  [markdown-it](https://github.com/markdown-it/markdown-it), que nos devolve um
-  array de _tokes_ que utilizamos para identificar os links.
-* Seguindo outro caminho, poderíamos usar [expressões regulares
-  (`RegExp`)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions).
-* Também poderíamos usar uma combinação de vários _módulos_ (poderia ser válido
-  transformar o markdown em um HTML usando o
-  [marked](https://github.com/markedjs/marked) e depois extrair os links com uma
-  biblioteca de DOM como [JSDOM](https://github.com/jsdom/jsdom) o
-  [Cheerio](https://github.com/cheeriojs/cheerio)).
-* Usando um _custom renderer_ de [marked](https://github.com/markedjs/marked)
-  (`new marked.Renderer()`).
 
 **Nós recomendamos o uso de `Regex` ou da biblioteca de `JSDOM`**
 
@@ -308,22 +261,8 @@ destas decisões. Não existe uma única maneira certa :wink:
 * [ ] Documentação técnica da sua biblioteca
 * [ ] Guia de uso e instalação da biblioteca
 
-### API `mdLinks(path, opts)`
-
-* [ ] O módulo exporta uma função com a interface (API) esperada
-* [ ] Implementa suporte para arquivo individual
-* [ ] Implementa suporte para diretórios
-* [ ] Implementa `options.validate`
-
 ### CLI
 
 * [ ] Possuir o executável `md-links` no path (configurado no `package.json`)
 * [ ] Executar sem erros e ter o resultado esperado
-* [ ] Implementar `--validate`
-* [ ] Implementar `--stats`
 
-### Testes
-
-* [ ] Os testes unitários devem cobrir no mínimo 70% dos statements, functions,
-  lines e branches.
-* [ ] Rodar os testes e linter (`npm test`).
