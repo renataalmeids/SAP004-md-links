@@ -1,23 +1,18 @@
-/*module.exports = () => {
-  // ...
-};*/
-
-
 const fs = require('fs');
 const { argv } = require('process');
 
 function mdLinks(path) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     fs.stat(path, (err, stats) => {
       if (stats.isFile()) {
         fs.readFile(path, 'utf8', (err, data) => {
           const regex = data.match(/\[(.[^\]]*)\]\((http.*)\)/gm)
           const linkRegex = regex.map(e => {
             const result = e.match(/\[(.[^\]]*)\]\((http.*)\)/)
-            return console.log({
+            return {
               text: result[1],
               href: result[2]
-            })
+            }
           })
           resolve(linkRegex)
         })
@@ -36,6 +31,6 @@ function mdLinks(path) {
     });
   })
 }
-mdLinks(process.argv[2]);
+//mdLinks(process.argv[2]);
 
 module.exports = mdLinks;

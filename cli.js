@@ -4,7 +4,9 @@ const files = process.argv[2];
 
 mdLinks(files)
 .then (result => {
-    console.log(result)
+    result.forEach(element => {
+        console.log (element.text, element.href)
+    });
 }).catch((err) => {
     console.log(err)
 });
